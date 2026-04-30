@@ -3,80 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivam Shukla | Backend Specialist</title>
+    <title>Shivam Shukla | Backend Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #020617; --accent: #22d3ee; }
-        body { background-color: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; color: #f8fafc; }
-        .grid-bg { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 30px 30px; }
-        .glass-card { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .glow:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(34, 211, 238, 0.2); }
-        .terminal { font-family: 'Fira Code', monospace; }
+        :root { --accent: #00f0ff; --bg: #030712; }
+        body { 
+            background-color: var(--bg); 
+            font-family: 'Space Grotesk', sans-serif; 
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        /* Animated Background Mesh */
+        .mesh {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+        .bento-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.1);
+        }
+        .terminal-text { font-family: 'Fira Code', monospace; }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
     </style>
 </head>
-<body class="grid-bg min-h-screen">
+<body class="p-4 md:p-8">
+    <div class="mesh"></div>
 
-    <div class="max-w-5xl mx-auto px-6 py-12">
-        <!-- Header -->
-        <nav class="flex justify-between items-center mb-20">
-            <div class="text-xl font-extrabold tracking-tighter">S.SHUKLA<span class="text-cyan-400">_</span></div>
-            <div class="flex gap-6 text-sm font-medium text-slate-400">
-                <a href="https://github.com/shivamshuklah" class="hover:text-cyan-400">GITHUB</a>
-                <a href="https://linkedin.com/in/shivamshuklah" class="hover:text-cyan-400">LINKEDIN</a>
+    <main class="max-w-6xl mx-auto">
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center mb-16 py-4">
+            <div class="text-2xl font-bold tracking-tighter text-white">S<span class="text-cyan-400">.</span>SHUKLA</div>
+            <div class="flex gap-4">
+                <a href="https://linkedin.com/in/shivamshuklah" class="bento-card px-4 py-2 rounded-full text-xs font-medium hover:text-cyan-400">LINKEDIN</a>
+                <a href="https://github.com/shivamshuklah" class="bento-card px-4 py-2 rounded-full text-xs font-medium hover:text-cyan-400">GITHUB</a>
             </div>
         </nav>
 
-        <!-- Hero -->
-        <header class="mb-24">
-            <div class="inline-block px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold mb-6">
-                2026 BATCH @ KIET GROUP OF INSTITUTIONS
-            </div>
-            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tight">
-                Backend <br/><span class="text-slate-500">Specialist.</span>
-            </h1>
-            <div class="glass-card p-6 rounded-2xl max-w-2xl terminal">
-                <p class="text-cyan-400 mb-2">// Technical DNA</p>
-                <p class="text-slate-300">
-                    <span class="text-pink-500">const</span> skills = {<br/>
-                    &nbsp;&nbsp;core: [<span class="text-yellow-400">"FastAPI", "Asyncio", "Python 3.12"</span>],<br/>
-                    &nbsp;&nbsp;aggregate: <span class="text-yellow-400">"71.28%"</span>,<br/>
-                    &nbsp;&nbsp;mission: <span class="text-yellow-400">"Infosys Specialist Programmer Track"</span><br/>
-                    };
+        <!-- Hero Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <!-- Main Intro -->
+            <div class="md:col-span-2 bento-card p-10 rounded-[2rem] relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-10">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h2 class="text-cyan-400 font-bold tracking-widest text-xs mb-4 uppercase">Specialist Programmer Track</h2>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">Backend <br/>Architect<span class="text-cyan-400">.</span></h1>
+                <p class="text-slate-400 text-lg max-w-md leading-relaxed">
+                    Building scalable, asynchronous systems with a focus on performance and security. 
                 </p>
             </div>
-        </header>
 
-        <!-- Projects -->
-        <section>
-            <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-10">Featured Architecture</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="glass-card p-8 rounded-3xl glow transition-all">
-                    <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6 text-cyan-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Secure File Sharing</h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed">End-to-end encrypted distribution utilizing AES-256 and Python cryptography libraries.</p>
-                    <a href="https://github.com/shivamshuklah/secure-file-sharing" class="text-sm font-bold text-cyan-400 hover:underline tracking-tight">VIEW REPOSITORY →</a>
+            <!-- Stats Card -->
+            <div class="bento-card p-10 rounded-[2rem] flex flex-col justify-center items-center text-center">
+                <span class="text-slate-500 text-xs font-bold uppercase mb-2">B.Tech Aggregate</span>
+                <div class="text-6xl font-bold text-white">71.28<span class="text-cyan-400 text-3xl">%</span></div>
+                <div class="mt-4 px-4 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-[10px] font-bold">2026 BATCH | KIET</div>
+            </div>
+        </div>
+
+        <!-- Secondary Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <!-- Skill Terminal -->
+            <div class="md:col-span-1 bento-card p-6 rounded-[2rem] terminal-text text-sm">
+                <div class="flex gap-2 mb-4">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
                 </div>
+                <p class="text-blue-400">shivam@backend:~$</p>
+                <p class="text-slate-300 mt-2">ls stack/</p>
+                <ul class="text-cyan-400 mt-2">
+                    <li>> FastAPI</li>
+                    <li>> Python 3.12</li>
+                    <li>> PostgreSQL</li>
+                    <li>> Docker</li>
+                    <li>> AsyncIO</li>
+                </ul>
+            </div>
 
-                <!-- Project 2 -->
-                <div class="glass-card p-8 rounded-3xl glow transition-all">
-                    <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6 text-cyan-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">FastAPI Engine</h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed">High-concurrency boilerplate with JWT Auth and Pydantic validation schemas.</p>
-                    <a href="https://github.com/shivamshuklah/fastapi-fullstack" class="text-sm font-bold text-cyan-400 hover:underline tracking-tight">VIEW REPOSITORY →</a>
+            <!-- Project 1 -->
+            <div class="md:col-span-1 bento-card p-8 rounded-[2rem] group">
+                <h3 class="font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Secure Share</h3>
+                <p class="text-slate-500 text-xs mb-4">AES-256 Encrypted backend sharing engine.</p>
+                <div class="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                    <div class="w-full h-full bg-cyan-400 shimmer"></div>
                 </div>
             </div>
-        </section>
 
-        <footer class="mt-32 pt-8 border-t border-slate-800 text-center text-slate-500 text-xs">
-            © 2026 SHIVAM SHUKLA // DESIGNED FOR PERFORMANCE
-        </footer>
-    </div>
+            <!-- Project 2 -->
+            <div class="md:col-span-1 bento-card p-8 rounded-[2rem] group">
+                <h3 class="font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">FastAPI Core</h3>
+                <p class="text-slate-500 text-xs mb-4">High-concurrency boilerplate for microservices.</p>
+                <div class="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                    <div class="w-full h-full bg-blue-500 shimmer"></div>
+                </div>
+            </div>
 
+            <!-- CTA Card -->
+            <a href="mailto:shivamshuklah@gmail.com" class="md:col-span-1 bg-cyan-500 p-8 rounded-[2rem] flex flex-col justify-between hover:bg-white transition-all group">
+                <div class="text-black font-bold text-2xl tracking-tighter">HIRE <br/>ME.</div>
+                <div class="text-black/60 group-hover:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="max-w-6xl mx-auto mt-12 pb-8 px-4 flex justify-between text-[10px] font-bold text-slate-600 uppercase tracking-widest">
+        <div>Optimized for Specialist Programmer track</div>
+        <div>© 2026 Shivam Shukla</div>
+    </footer>
 </body>
 </html>
